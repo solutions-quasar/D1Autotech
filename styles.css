@@ -679,22 +679,66 @@ img {
 
     .hero-section {
         height: auto;
-        min-height: 600px;
-        padding-bottom: 60px;
+        min-height: auto;
+        /* Allow content to dictate height */
+        padding-bottom: 80px;
+        /* Space for floating buttons */
+        padding-top: 100px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        /* Stack vertically */
+        gap: 30px;
+        text-align: center;
+    }
+
+    .hero-text-col {
+        padding-right: 0;
+        order: 1;
+        /* Text first */
+    }
+
+    .hero-image-col {
+        order: 2;
+        /* Image second */
+        min-height: 300px;
+        width: 100%;
+        display: block;
+        /* Ensure block layout */
+    }
+
+    .hero-main-image {
+        clip-path: none;
+        /* Remove slant on mobile to show full image */
+        max-height: 400px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+        /* Slight round instead of sharp slant */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-chips {
+        justify-content: center;
+        /* Center chips */
     }
 
     .hero-actions {
         flex-direction: column;
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
+        /* Full width buttons */
+        align-items: center;
+        /* Center buttons */
     }
 
     .hero-content {
-        padding-top: 40px;
+        padding-top: 0;
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     /* Floating Actions */
