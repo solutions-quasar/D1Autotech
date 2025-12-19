@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://d1autotech.com/sitemap.xml
