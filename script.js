@@ -265,13 +265,23 @@ function populateFooter(company) {
 /* MOBILE MENU */
 function setupMobileMenu() {
     const btn = document.querySelector('.mobile-menu-btn');
+    const closeBtn = document.querySelector('.mobile-menu-close');
     const overlay = document.querySelector('.mobile-nav-overlay');
     const links = document.querySelectorAll('.mobile-nav-overlay a');
 
+    // Open
     btn.addEventListener('click', () => {
-        overlay.classList.toggle('active');
+        overlay.classList.add('active');
     });
 
+    // Close Button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.remove('active');
+        });
+    }
+
+    // Close on Link Click
     links.forEach(link => {
         link.addEventListener('click', () => {
             overlay.classList.remove('active');
