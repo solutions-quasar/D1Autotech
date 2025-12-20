@@ -656,15 +656,6 @@ img {
     cursor: pointer;
 }
 
-/* Hero Images Visibility Default (Desktop) */
-.desktop-hero-img {
-    display: block;
-}
-
-.mobile-hero-img {
-    display: none;
-}
-
 /* View All Services Button (Mobile Only) */
 .btn-view-services {
     display: none;
@@ -724,15 +715,6 @@ img {
         min-height: 400px;
         width: 100%;
         display: block;
-    }
-
-    .desktop-hero-img {
-        display: none !important;
-    }
-
-    .mobile-hero-img {
-        display: block !important;
-        margin-top: 20px;
     }
 
     .hero-main-image {

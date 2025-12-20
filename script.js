@@ -169,7 +169,27 @@ function populateHero(hero, gallery) {
     if (bgImage) {
         const imgEl = document.getElementById('hero-img');
         if (imgEl) {
-            imgEl.src = bgImage;
+            const desktopSrc = bgImage;
+            const mobileSrc = 'assets/images/hero-mobile.jpg';
+
+            const updateHeroImage = () => {
+                // Check if window width is <= 1024px (consistent with CSS breakpoint)
+                if (window.innerWidth <= 1024) {
+                    if (imgEl.src.indexOf(mobileSrc) === -1) { // Only update if changed
+                        imgEl.src = mobileSrc;
+                    }
+                } else {
+                    if (imgEl.src !== desktopSrc) { // Only update if changed
+                        imgEl.src = desktopSrc;
+                    }
+                }
+            };
+
+            // Initial set
+            updateHeroImage();
+
+            // Listen for resize
+            window.addEventListener('resize', updateHeroImage);
         }
     }
 }
