@@ -177,14 +177,42 @@ function populateHero(hero, gallery) {
 function populateServices(services) {
     const container = document.getElementById('services-grid');
     container.innerHTML = '';
-    services.forEach(service => {
+
+    const VISIBLE_COUNT = 4;
+
+    services.forEach((service, index) => {
         const div = document.createElement('div');
         div.className = 'service-card';
+        if (index >= VISIBLE_COUNT) {
+            div.classList.add('mobile-hidden');
+        }
         div.innerHTML = `
             <h3 class="service-title">${service.title}</h3>
         `;
         container.appendChild(div);
     });
+
+    // Add Toggle Button
+    const btnId = 'view-all-services-btn';
+    let btn = document.getElementById(btnId);
+
+    // Remove existing button if it exists to prevent duplicates
+    if (btn) btn.remove();
+
+    if (services.length > VISIBLE_COUNT) {
+        btn = document.createElement('button');
+        btn.id = btnId;
+        btn.className = 'btn-view-services';
+        btn.textContent = 'View All Services';
+        btn.onclick = () => {
+            document.querySelectorAll('.service-card.mobile-hidden').forEach(el => {
+                el.classList.remove('mobile-hidden');
+            });
+            btn.style.display = 'none'; // Hide button after expanding
+        };
+        // Append button AFTER the grid
+        container.parentNode.insertBefore(btn, container.nextSibling);
+    }
 }
 
 function populateHowItWorks(data) {

@@ -656,6 +656,26 @@ img {
     cursor: pointer;
 }
 
+/* View All Services Button (Mobile Only) */
+.btn-view-services {
+    display: none;
+    margin: 20px auto 0;
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-view-services:hover {
+    background: #fff;
+    color: #000;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
     .contact-container {
@@ -666,6 +686,15 @@ img {
     .hero-section h1 {
         font-size: 2.5rem;
     }
+}
+
+@media (max-width: 1024px) {
+    /* ... existing 1024px rules ... */
+    /* Add this rule to show the button/hide items on mobile/tablet if desired. 
+       User complained about mobile, so 768px might be better targeting, 
+       but 1024px is safe if tablets also feel crowded. 
+       Let's stick to < 768px for the 'crowded' check to match phone screenshot. 
+       Actually, let's put it in the < 768px block lower down. */
 }
 
 @media (max-width: 1024px) {
@@ -715,6 +744,16 @@ img {
 
     .hero-chips {
         justify-content: center;
+    }
+
+    /* Mobile Services Toggle */
+    .service-card.mobile-hidden {
+        display: none;
+    }
+
+    .btn-view-services {
+        display: block;
+        /* Show button on mobile */
     }
 }
 
